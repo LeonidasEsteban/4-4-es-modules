@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pokemon Palette - ES Modules</title>
+  <style>
+    body {
+      height: 100vh;
+      margin: 0;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-template-rows: 100px 1fr;
+      align-items: center;
+      justify-items: center;
+
+      --primary: #ffd924;
+      --secondary: #e5961d;
+      --tertiary: #cf4310;
+
+      transition: --primary 1s, --secondary 1s, --tertiary 1s;
+
+      background:
+        linear-gradient(var(--primary), transparent),
+        linear-gradient(90deg, var(--secondary), transparent),
+        linear-gradient(-90deg, var(--tertiary), transparent);
+    }
+
+    body:hover {
+      --primary: #71bfb1;
+      --secondary: #5fa195;
+      --tertiary: #c55d00;
+    }
+
+
+    .palette {
+      justify-self: stretch;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 100px;
+    }
+
+    .palette .primary {
+      background-color: var(--primary);
+    }
+
+    .palette .secondary {
+      background-color: var(--secondary);
+    }
+
+    .palette .tertiary {
+      background-color: var(--tertiary);
+    }
+
+    input {
+      padding: 1em 2em;
+      font-size: 20px;
+      border: none;
+      outline: 0;
+      --bezel-width: 5;
+      --bezel-radius: 20px 0px 20px 0px;
+      --bezel-color: var(--primary);
+      -webkit-mask: paint(bezel, filled);
+      background-image: paint(bezel, stroke);
+    }
+    canvas {
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="palette">
+    <span class="primary"></span>
+    <span class="secondary"></span>
+    <span class="tertiary"></span>
+  </div>
+  <form action="" id="form">
+    <canvas id="canvas" width="100" height="100"></canvas>
+    <input type="text" placeholder="Name or ID" name="id" autocomplete="off" autofocus>
+  </form>
+
+  <script src="./paint-modules.js"></script>
+  <script src="./custom-properties.js"></script>
+  <script src="./app.js" type="module"></script>
+</body>
+
+</html>
